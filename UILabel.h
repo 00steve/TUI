@@ -5,15 +5,16 @@
 
 class UILabel : public UIWidget {
 private:
-    String value;
+    String *value;
+    String knownValue;
     
 public:
-    UILabel(String newValue,Style newStyle,Int2 topLeft,Int2 bottomRight);
+    UILabel(String &value,Style newStyle,Int2 topLeft,Int2 bottomRight);
     ~UILabel();
 
     virtual void Draw();
-
-  
+    virtual void Redraw();
+    virtual void Update();
 };
 
 

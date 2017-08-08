@@ -15,7 +15,8 @@ protected:
     String value;
     Style style;
 
-
+     uint16_t backgroundColor;
+     
 public:
     UIWidget(Int2 topLeft,Int2 bottomRight,Style style);
     ~UIWidget();
@@ -24,6 +25,9 @@ public:
     
     virtual bool OnDown(Int2 position);
     virtual bool OnUp();
+
+    virtual void Redraw() = 0;
+    virtual void Update() = 0;
     virtual bool WhilePressing(Int2 position);
   
 };

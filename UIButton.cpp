@@ -21,7 +21,7 @@ void UIButton::Draw(){
     } else {
         Screen::tft.setFont(style.fontStyle);
         Screen::tft.setTextColor(style.fontColor);
-        Screen::tft.fillRoundRect(left,top,width,height,style.radius,style.backgroundColor);
+        Screen::tft.fillRect(left,top,width,height,style.backgroundColor);
     }
 
     Screen::tft.setCursor(left,top);
@@ -44,4 +44,11 @@ bool UIButton::OnUp(){
     return true;
 }
 
+void UIButton::Redraw(){
+    Draw();
+}
 
+
+void UIButton::Update(){
+    
+};

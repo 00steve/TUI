@@ -8,10 +8,11 @@ Int2 Touch::screenMax = Int2(3782,3484);
 Int2 Touch::screenMin = Int2(230,397);
 
 float Touch::pressure = 0;
+float Touch::smoothPressure = 0;
 Int2 Touch::position = Int2(0,0);
 Int2 Touch::smoothPosition = Int2(0,0);
 
-int Touch::minPressure = 50;
+int Touch::minPressure = 40;
 unsigned char Touch::rotation = 0;
 
 void Touch::SetRotation(unsigned char newRotation){
@@ -144,11 +145,16 @@ Int2 Touch::Position(){
 }
 
 Int2 Touch::SmoothPosition(){
-    smoothPosition = (smoothPosition*9 + position) / 10;
+    if((position.x-smoothPosition.x) * (position.x-smoothPosition.x) + (position.y-smoothPosition.y) * (position.y-smoothPosition.y) > 40000){
+        smoothPosition = position;
+    } else {
+        smoothPosition = (smoothPosition*9 + position) / 10;
+    }
     return smoothPosition;
 }
 
 bool Touch::Pressing(){
+    //smoothPressure = (smoothPressure*3 + pressure) / 4;
     return pressure > minPressure;
 }
 

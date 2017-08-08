@@ -15,6 +15,8 @@ public:
     virtual void Draw();
     virtual bool OnDown(Int2 position);
     virtual bool OnUp();
+    virtual void Redraw();
+    virtual void Update();
 };
 
 

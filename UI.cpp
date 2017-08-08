@@ -29,7 +29,7 @@ bool UI::AddWidget(UIWidget *newWidget){
 void UI::Draw(){
     i = widgetCount;
     while(i-->0){
-        widget[i]->Draw();
+        widget[i]->Redraw();
     }
 }
 
@@ -51,7 +51,7 @@ bool UI::Update(){
         if(!Touch::Pressing()){
             pressState = 10;
         } else {
-            pressPosition = Touch::Position();
+            pressPosition = Touch::SmoothPosition();
             activeWidget->WhilePressing(pressPosition);
         }
         break;
@@ -61,6 +61,13 @@ bool UI::Update(){
         pressState = 0;
         break;
     }
+
+    //after handling screen input, run the generic update for each widget
+    i = widgetCount;
+    while(i-->0){
+        widget[i]->Update();
+    }
+    
     return true;
 }
 

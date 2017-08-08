@@ -36,6 +36,7 @@ private:
     static void translatePosition();
 
     static float pressure;
+    static float smoothPressure;
     static Int2 position;
     static Int2 smoothPosition;
     static int minPressure;
