@@ -1,6 +1,11 @@
 
 #include "UI.h"
 #include "UILabel.h"
+#include "UIButton.h"
+
+#define SCREEN_ROTATION 3
+
+UI ui;
 
 void setup() {
     analogReadAveraging(32);
@@ -11,20 +16,17 @@ void setup() {
   
     
     Touch::Setup();
+    Touch::SetRotation(SCREEN_ROTATION);
     Screen::Setup();
-    Screen::SetRotation(3);
+    Screen::SetRotation(SCREEN_ROTATION);
+
+    ui.AddWidget(new UILabel("stuff",Style::P(),Int2(10,10),Int2(200,140)));
+    ui.AddWidget(new UIButton("click me",Style::Button(),Int2(210,10),Int2(400,140)));
+    ui.Draw();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  Touch::Update();
-  Int2 pos = Touch::Position();
-  Serial.print(pos.x);
-  Serial.print(" ");
-  Serial.println(pos.y);
-  delay(10);
-
-  UILabel widg = UILabel("stuff",UIP,Int2(pos.x,pos.y),Int2(200,140));
-  widg.Draw();
-  
+    // put your main code here, to run repeatedly:
+    Touch::Update();
+    ui.Update();
 }
