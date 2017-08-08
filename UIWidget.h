@@ -12,14 +12,12 @@ private:
 protected:
     unsigned short top,left,width,height;
     Int2 dimensions;//xy width and height of widget
-    bool isDirty;
     String value;
     Style style;
 
 
 public:
     UIWidget(Int2 topLeft,Int2 bottomRight,Style style);
-    virtual bool Dirty() = 0;
     virtual void Draw() = 0;
     
     virtual bool OnDown(Int2 position);

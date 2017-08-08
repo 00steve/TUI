@@ -18,5 +18,8 @@ Style Style::Button(){
     n.backgroundColorActive = 0x006F;
     n.fontStyleActive = LiberationSans_16;
     n.fontColorActive = 0xFFFF;
+
+    n.padding = 10;
+    n.radius = 10;
     return n;
 }

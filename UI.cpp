@@ -8,6 +8,10 @@ UI::UI() :
         {
 }
 
+UI::~UI(){
+    delete widget;
+}
+
 bool UI::AddWidget(UIWidget *newWidget){
     if(widgetCount == 64) return false;
     widget[widgetCount++] = newWidget;
@@ -15,7 +19,6 @@ bool UI::AddWidget(UIWidget *newWidget){
 }
 
 void UI::Draw(){
-
     i = widgetCount;
     while(i-->0){
         widget[i]->Draw();

@@ -34,6 +34,8 @@ private:
 
 public:
     UI();
+    ~UI();
+    
     bool AddWidget(UIWidget *newWidget);
     void Draw();
     bool Update();

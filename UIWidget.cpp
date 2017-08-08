@@ -6,7 +6,6 @@ UIWidget::UIWidget(Int2 topLeft,Int2 bottomRight,Style style) :
     left(topLeft.x),
     width(bottomRight.x - topLeft.x),
     height(bottomRight.y - topLeft.y),
-    isDirty(true),
     style(style)
         {
 }
