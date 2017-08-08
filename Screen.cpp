@@ -9,12 +9,6 @@ void Screen::Clear(){
     tft.fillScreen(ILI9341_BLACK);
 }
 
-Int2 Screen::GetTextDrawSize(String text){
-    int16_t  x1, y1;
-    uint16_t w, h;
-    //tft.getTextBounds(text, 0, 0, &x1, &y1, &w, &h);
-    return Int2(w,h);
-}
 
     
 bool Screen::SetRotation(unsigned short newRotation){

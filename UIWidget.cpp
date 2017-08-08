@@ -8,14 +8,10 @@ UIWidget::UIWidget(Int2 topLeft,Int2 bottomRight,Style style) :
     height(bottomRight.y - topLeft.y),
     style(style)
         {
-}
-/*
-void UIWidget::Draw(){
-    Screen::Hardware().drawRect(left,top,width,height,0xffff);
-    Screen::Hardware().drawLine(left,top,left+width-1,top+height-1,0xffff);
-    Screen::Hardware().drawLine(left+width-1,top,left,top+height-1,0xffff);
-};*/
+};
 
+UIWidget::~UIWidget(){
+};
 
 bool UIWidget::OnDown(Int2 position){
     return false;

@@ -7,10 +7,13 @@
 struct Style{
     
     uint16_t backgroundColor;
-    ILI9341_t3_font_t fontStyle;
-    uint16_t fontColor;
     uint16_t backgroundColorActive;
+    uint16_t clearColor;
+    
+    ILI9341_t3_font_t fontStyle;
     ILI9341_t3_font_t fontStyleActive;
+    
+    uint16_t fontColor;
     uint16_t fontColorActive;
 
     /*padding is the amount of room given from the border of any widgets 

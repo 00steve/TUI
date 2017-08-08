@@ -10,7 +10,8 @@ private:
 
 public:
     UIButton(String newValue,Style newStyle,Int2 topLeft,Int2 bottomRight);
-
+    ~UIButton();
+    
     virtual void Draw();
     virtual bool OnDown(Int2 position);
     virtual bool OnUp();

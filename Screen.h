@@ -21,7 +21,6 @@ public:
     
 public:
     static void Clear();
-    static Int2 GetTextDrawSize(String text);
     static ILI9341_t3 &Hardware();
     static bool SetRotation(unsigned short newRotation);
     static bool Setup();

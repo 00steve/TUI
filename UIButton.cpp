@@ -8,6 +8,9 @@ UIButton::UIButton(String newValue,Style newStyle,Int2 topLeft, Int2 bottomRight
         {
     Screen::tft.setFont(style.fontStyle);
 };
+UIButton::~UIButton(){
+  
+}
 
 
 void UIButton::Draw(){

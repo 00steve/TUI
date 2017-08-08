@@ -32,6 +32,8 @@ private:
 
     unsigned int i;
 
+    UIWidget *activeWidget;
+
 public:
     UI();
     ~UI();

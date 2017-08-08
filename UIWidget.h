@@ -18,6 +18,8 @@ protected:
 
 public:
     UIWidget(Int2 topLeft,Int2 bottomRight,Style style);
+    ~UIWidget();
+    
     virtual void Draw() = 0;
     
     virtual bool OnDown(Int2 position);

@@ -6,7 +6,9 @@ UILabel::UILabel(String newValue,Style newStyle,Int2 topLeft, Int2 bottomRight) 
         {
   
 };
-
+UILabel::~UILabel(){
+    
+}
 
 
 void UILabel::Draw(){

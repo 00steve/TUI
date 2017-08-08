@@ -4,12 +4,20 @@ UI::UI() :
     widgetSize(64),
     widgetCount(0),
     widget(new UIWidget*[widgetSize]),
-    pressState(0)
+    pressState(0),
+    activeWidget(NULL)
         {
 }
 
 UI::~UI(){
+    i = widgetCount;
+    while(i-->0){
+        delete widget[i];
+    }
     delete widget;
+    if(activeWidget){
+        delete activeWidget;
+    }
 }
 
 bool UI::AddWidget(UIWidget *newWidget){
@@ -29,38 +37,27 @@ bool UI::Update(){
     switch(pressState){
     case 0: //not pressing
         if(Touch::Pressing()){
-            Serial.println("press");
-            pressState = 5;
             pressPosition = Touch::Position();
-            Serial.print(pressPosition.x);
-            Serial.print(",");
-            Serial.println(pressPosition.y);
             i = widgetCount;
             while(i-->0){
                 if(!widget[i]->OnDown(pressPosition)) continue;
+                activeWidget = widget[i];
+                pressState = 5;
                 break;
             }
         }
         break;
     case 5: //while pressing
-    
-            if(!Touch::Pressing()){
-                pressState = 10;
-            } else {
-                pressPosition = Touch::Position();
-                i = widgetCount;
-                while(i-->0){
-                    widget[i]->WhilePressing(pressPosition);
-                }
-            }
-
+        if(!Touch::Pressing()){
+            pressState = 10;
+        } else {
+            pressPosition = Touch::Position();
+            activeWidget->WhilePressing(pressPosition);
+        }
         break;
     case 10: //done pressing
-        Serial.println("up");
-        i = widgetCount;
-        while(i-->0){
-            widget[i]->OnUp();
-        }
+        activeWidget->OnUp();
+        activeWidget = NULL;
         pressState = 0;
         break;
     }
