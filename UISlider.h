@@ -68,6 +68,7 @@ public:
         vertical = height > width;//the orientation of the slider.
         sliderRadius = (vertical ? width : height ) *.5 - style.padding;
         translateToScreen();
+        oldPosition = vertical ? sliderPosition.y : sliderPosition.x;
         Redraw();
     }
     ~UISlider(){
@@ -128,6 +129,7 @@ public:
     void Update(){
         if(knownValue != *value){
             knownValue = *value;
+            isDirty = true;
             translateToScreen();
             Draw();
         }
@@ -138,15 +140,16 @@ public:
             if(sliderPosition.y != position.y){
                 oldPosition = sliderPosition.y;
                 sliderPosition.y = position.y;//-touchOffset;
+                isDirty = true;
                 translateToValue();
                 Draw();
             }
         } else {
             if(sliderPosition.x != position.x){
                 Serial.println(position.x);
-                //Screen::tft.fillCircle(sliderPosition.x,sliderPosition.y,sliderRadius,style.clearColor);
                 oldPosition = sliderPosition.x;
                 sliderPosition.x = position.x;//-touchOffset;
+                isDirty = true;
                 translateToValue();
                 Draw();
             }

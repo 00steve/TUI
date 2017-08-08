@@ -14,15 +14,15 @@ protected:
     Int2 dimensions;//xy width and height of widget
     String value;
     Style style;
-
-     uint16_t backgroundColor;
+    bool isDirty;
+    uint16_t backgroundColor;
      
 public:
     UIWidget(Int2 topLeft,Int2 bottomRight,Style style);
     ~UIWidget();
     
     virtual void Draw() = 0;
-    
+    bool IsDirty();
     virtual bool OnDown(Int2 position);
     virtual bool OnUp();
 

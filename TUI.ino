@@ -9,6 +9,7 @@
 UI ui;
 
 double sliderValue = 10;
+double sliderValue2 = 10;
 String labelValue = "things";
 
 void setup() {
@@ -30,7 +31,7 @@ void setup() {
     ui.AddWidget(new UIButton("click me",Style::Button(),Int2(210,10),Int2(400,100)));
     
     ui.AddWidget(new UISlider<double>(sliderValue,0,100,Style::Button(),Int2(10,110),Int2(470,160)));
-    ui.AddWidget(new UISlider<double>(sliderValue,0,80,Style::Button(),Int2(10,170),Int2(70,310)));
+    ui.AddWidget(new UISlider<double>(sliderValue2,0,80,Style::Button(),Int2(10,170),Int2(70,310)));
     ui.Draw();
 }
 

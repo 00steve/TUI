@@ -64,9 +64,19 @@ bool UI::Update(){
 
     //after handling screen input, run the generic update for each widget
     i = widgetCount;
+    bool dirty = false;
     while(i-->0){
-        widget[i]->Update();
+        if(!widget[i]->IsDirty()) continue;
+        dirty = true;
+        break;
     }
+    if(dirty){
+        i = widgetCount;
+        while(i-->0){
+            widget[i]->Update();
+        }
+    }
+ 
     
     return true;
 }
