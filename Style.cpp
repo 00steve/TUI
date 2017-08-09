@@ -1,11 +1,21 @@
 #include "Style.h"
 
+Style Style::H1(){
+    Style n;
+    n.backgroundColor = 0x0000;
+    n.fontStyle = LiberationSans_32;
+    n.fontColor = 0xFFFF;
+    n.padding = 10;
+    return n;
+}
+
+
 Style Style::P(){
     Style n;
     n.backgroundColor = 0x0000;
     n.fontStyle = LiberationSans_16;
     n.fontColor = 0xFFFF;
-
+    n.padding = 10;
     return n;
 }
 

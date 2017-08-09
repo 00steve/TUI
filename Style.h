@@ -26,6 +26,7 @@ struct Style{
     /*just like the css property, mo-fo's!*/
     unsigned char radius;
 
+    static Style H1();
     static Style P();
     static Style Button();
   

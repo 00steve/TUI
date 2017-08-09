@@ -17,7 +17,7 @@ void UIButton::Draw(){
     if(pressing){
         Screen::tft.setFont(style.fontStyleActive);
         Screen::tft.setTextColor(style.fontColorActive);
-        Screen::tft.fillRoundRect(left,top,width,height,style.radius,style.backgroundColorActive);   
+        Screen::tft.fillRect(left,top,width,height,style.backgroundColorActive);   
     } else {
         Screen::tft.setFont(style.fontStyle);
         Screen::tft.setTextColor(style.fontColor);
