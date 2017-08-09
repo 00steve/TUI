@@ -3,6 +3,7 @@
 #include "UILabel.h"
 #include "UIButton.h"
 #include "UISlider.h"
+#include "UICheckbox.h"
 
 #define SCREEN_ROTATION 3
 
@@ -13,6 +14,9 @@ double sliderValue2 = 10;
 double sliderValue3 = 50;
 double sliderValue4 = 74.51;
 String labelValue = "things";
+bool checkedValue = true;
+
+//double xAcc = 0;
 
 void setup() {
     analogReadAveraging(32);
@@ -45,6 +49,13 @@ void setup() {
     
     ui.AddWidget(new UISlider<double>(sliderValue4,0,140,Style::Button(),Int2(210,170),Int2(260,310)));
     ui.AddWidget(new UILabel<double>(sliderValue4,Style::P(),Int2(10,235),Int2(80,260)));
+
+    ui.AddWidget(new UICheckbox(checkedValue,Style::Button(),Int2(270,170),Int2(320,220)));
+
+    
+    //ui.AddWidget(new UILabel<double>(xAcc,Style::P(),Int2(330,170),Int2(470,200)));
+
+    //pinMode(A17,INPUT);
     
     ui.Draw();
 }
@@ -60,6 +71,6 @@ void loop() {
         labelValue = "things";
     }
 
-    
-    
+    //xAcc = analogRead(A17);
+    //Serial.println(xAcc);
 }
