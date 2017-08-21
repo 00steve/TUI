@@ -16,7 +16,7 @@ double sliderValue4 = 74.51;
 String labelValue = "things";
 bool checkedValue = true;
 
-//double xAcc = 0;
+double xAcc = 0;
 
 void setup() {
     analogReadAveraging(32);
